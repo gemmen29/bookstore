@@ -5,6 +5,7 @@ import styles from './BookItem.module.css';
 const BookItem = ({ book }) => (
   <div className={styles.BookItem}>
     {`Name: ${book.name}, Category: ${book.category}`}
+    <button type="button">Remove</button>
   </div>
 );
 
