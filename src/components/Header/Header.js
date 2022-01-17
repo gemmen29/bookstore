@@ -7,7 +7,7 @@ const Header = () => (
     <nav className={styles.nav}>
       <h1>BookStore</h1>
       <NavLink to="/books">Home</NavLink>
-      <NavLink to="/categories">Calculator</NavLink>
+      <NavLink to="/categories">Categories</NavLink>
     </nav>
   </header>
 );
