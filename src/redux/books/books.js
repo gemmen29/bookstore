@@ -13,9 +13,9 @@ export const addBook = ({ title, author } = {}) => ({
     author,
   },
 });
-export const removeBook = ({ id } = {}) => ({
+export const removeBook = (payload) => ({
   type: REMOVE_BOOK,
-  payload: id,
+  payload,
 });
 
 const reducer = (state = initialState, action) => {
