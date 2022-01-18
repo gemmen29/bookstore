@@ -1,11 +1,17 @@
+import uuid from 'uuid';
+
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 
 const initialState = [];
 
-export const addBook = (payload) => ({
+export const addBook = ({ name, category } = {}) => ({
   type: ADD_BOOK,
-  payload,
+  payload: {
+    id: uuid(),
+    name,
+    category,
+  },
 });
 export const removeBook = (payload) => ({
   type: ADD_BOOK,
@@ -15,6 +21,7 @@ export const removeBook = (payload) => ({
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BOOK:
+      return [...state, action.payload];
 
     case REMOVE_BOOK:
 
