@@ -31,6 +31,9 @@ const AddBook = ({ categories }) => {
       author: bookAuthor,
     };
     dispatch(addBook(newBook));
+
+    setBookTitle('');
+    setBookAuthor('');
   };
 
   return (
