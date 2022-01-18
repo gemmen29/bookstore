@@ -11,29 +11,26 @@ const AddBook = ({ categories }) => {
   const dispatch = useDispatch();
 
   const bookTitleHandler = (e) => {
-    const bookTitle = e.target.value.trim();
-    if (bookTitle.length > 0) {
-      setBookTitle(bookTitle);
-    }
+    setBookTitle(e.target.value);
   };
 
   const bookAuthorHandler = (e) => {
-    const bookAuthor = e.target.value.trim();
-    if (bookAuthor.length > 0) {
-      setBookAuthor(bookAuthor);
-    }
+    setBookAuthor(e.target.value);
   };
 
   const submitBookToStore = (e) => {
     e.preventDefault();
-    const newBook = {
-      title: bookTitle,
-      author: bookAuthor,
-    };
-    dispatch(addBook(newBook));
-
-    setBookTitle('');
-    setBookAuthor('');
+    const isBookTitleValid = bookTitle.trim().length > 0;
+    const isBookAuthorValid = bookAuthor.trim().length > 0;
+    if (isBookTitleValid && isBookAuthorValid) {
+      const newBook = {
+        title: bookTitle,
+        author: bookAuthor,
+      };
+      dispatch(addBook(newBook));
+      setBookTitle('');
+      setBookAuthor('');
+    }
   };
 
   return (
