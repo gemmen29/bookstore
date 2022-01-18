@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './AddBook.module.css';
-// import { useDispatch } from 'react-redux';
-// import { addBook } from './redux/books/books';
+import { useDispatch } from 'react-redux';
+import { addBook } from './redux/books/books';
 
 const AddBook = ({ categories }) => {
   const [bookTitle, setBookTitle] = useState('');
   const [bookAuthor, setBookAuthor] = useState('');
+
+  const dispatch = useDispatch();
 
   const bookTitleHandler = (e) => {
     const bookTitle = e.target.value.trim();
@@ -22,8 +24,17 @@ const AddBook = ({ categories }) => {
     }
   };
 
+  const submitBookToStore = (e) => {
+    e.preventDefault();
+    const newBook = {
+      title,
+      author,
+    };
+    dispatch(addBook(newBook));
+  };
+
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={submitBookToStore}>
       <h2>Add New Book</h2>
       <input
         type="text"
