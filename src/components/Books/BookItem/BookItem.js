@@ -4,16 +4,15 @@ import styles from './BookItem.module.css';
 
 const BookItem = ({ book }) => (
   <div className={styles.BookItem}>
-    {`Name: ${book.name}, Category: ${book.category}`}
+    {`Name: ${book.title}, Category: ${book.author}`}
     <button type="button">Remove</button>
   </div>
 );
 
 BookItem.propTypes = {
   book: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
   }).isRequired,
 };
 
