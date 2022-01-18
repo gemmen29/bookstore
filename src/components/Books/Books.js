@@ -1,14 +1,8 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styles from './Books.module.css';
 import AddBook from './AddBook/AddBook';
 import BookItem from './BookItem/BookItem';
-
-const dummyBooks = [
-  { id: 1, name: 'Book 1', category: 'cat1' },
-  { id: 2, name: 'Book 2', category: 'cat2' },
-  { id: 3, name: 'Book 3', category: 'cat3' },
-  { id: 4, name: 'Book 4', category: 'cat4' },
-];
 
 const dummyCategories = [
   { id: 1, name: 'cat1' },
@@ -17,7 +11,7 @@ const dummyCategories = [
   { id: 4, name: 'cat4' },
 ];
 const Books = () => {
-  const books = [...dummyBooks];
+  const books = useSelector((state) => state.books);
   const categories = [...dummyCategories];
   return (
     <div className={styles.Books}>
