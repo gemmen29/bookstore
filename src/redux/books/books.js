@@ -11,3 +11,16 @@ export const removeBook = (payload) => ({
   type: ADD_BOOK,
   payload,
 });
+
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_BOOK:
+
+    case REMOVE_BOOK:
+
+    default:
+      return state;
+  }
+};
+
+export default reducer;
