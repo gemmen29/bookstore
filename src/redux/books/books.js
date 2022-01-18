@@ -5,16 +5,16 @@ const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 
 const initialState = [];
 
-export const addBook = ({ name, category } = {}) => ({
+export const addBook = ({ title, author } = {}) => ({
   type: ADD_BOOK,
   payload: {
     id: uuid(),
-    name,
-    category,
+    title,
+    author,
   },
 });
 export const removeBook = ({ id } = {}) => ({
-  type: ADD_BOOK,
+  type: REMOVE_BOOK,
   payload: id,
 });
 
