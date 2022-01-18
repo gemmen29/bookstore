@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './AddBook.module.css';
-import { useDispatch } from 'react-redux';
-import { addBook } from './redux/books/books';
+import { addBook } from '../../../redux/books/books';
 
 const AddBook = ({ categories }) => {
   const [bookTitle, setBookTitle] = useState('');
@@ -27,8 +27,8 @@ const AddBook = ({ categories }) => {
   const submitBookToStore = (e) => {
     e.preventDefault();
     const newBook = {
-      title,
-      author,
+      title: bookTitle,
+      author: bookAuthor,
     };
     dispatch(addBook(newBook));
   };
