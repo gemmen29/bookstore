@@ -6,7 +6,7 @@ import { addBook } from '../../../redux/books/books';
 
 const AddBook = ({ categories }) => {
   const [bookTitle, setBookTitle] = useState('');
-  const [bookAuthor, setBookAuthor] = useState('');
+  const [bookCategory, setBookCategory] = useState('');
 
   const dispatch = useDispatch();
 
@@ -14,22 +14,22 @@ const AddBook = ({ categories }) => {
     setBookTitle(e.target.value);
   };
 
-  const bookAuthorHandler = (e) => {
-    setBookAuthor(e.target.value);
+  const bookCategoryHandler = (e) => {
+    setBookCategory(e.target.value);
   };
 
   const submitBookToStore = (e) => {
     e.preventDefault();
     const isBookTitleValid = bookTitle.trim().length > 0;
-    const isBookAuthorValid = bookAuthor.trim().length > 0;
-    if (isBookTitleValid && isBookAuthorValid) {
+    const isBookCategoryValid = bookCategory !== '';
+    if (isBookTitleValid && isBookCategoryValid) {
       const newBook = {
         title: bookTitle,
-        author: bookAuthor,
+        category: bookCategory,
       };
       dispatch(addBook(newBook));
       setBookTitle('');
-      setBookAuthor('');
+      setBookCategory('');
     }
   };
 
@@ -43,14 +43,7 @@ const AddBook = ({ categories }) => {
         placeholder="Book title"
         required
       />
-      <input
-        type="text"
-        value={bookAuthor}
-        onChange={bookAuthorHandler}
-        placeholder="Author"
-        required
-      />
-      <select defaultValue="">
+      <select value={bookCategory} onChange={bookCategoryHandler}>
         <option value="" hidden disabled>
           Categories
         </option>

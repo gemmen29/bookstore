@@ -11,7 +11,7 @@ const BookItem = ({ book }) => {
   };
   return (
     <div className={styles.BookItem}>
-      {`Name: ${book.title}, Category: ${book.author}`}
+      {`Name: ${book.title}, Category: ${book.category}`}
       <button type="button" onClick={removeBookHandler}>
         Remove
       </button>
@@ -23,7 +23,7 @@ BookItem.propTypes = {
   book: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
   }).isRequired,
 };
 
