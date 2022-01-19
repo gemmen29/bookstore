@@ -25,3 +25,9 @@ export const deleteBook = async ({ id }) => {
   const data = await response.text();
   return data;
 };
+
+export const getAllBooks = async () => {
+  const response = await fetch(`${baseURL}/${appId}/books`);
+  const data = await response.json();
+  return data;
+};
