@@ -1,18 +1,27 @@
 import { v4 as uuid } from 'uuid';
+import { addBook as addNewBook } from '../../api/APIHelper';
 
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 
 const initialState = [];
 
-export const addBook = ({ title, author } = {}) => ({
-  type: ADD_BOOK,
-  payload: {
+export const addBook = (payload) => async (dispatch) => {
+  const { title, category } = payload;
+  const book = {
     id: uuid(),
     title,
-    author,
-  },
-});
+    category,
+  };
+  const text = await addNewBook(book);
+  if (text === 'Created') {
+    dispatch({
+      type: ADD_BOOK,
+      payload: book,
+    });
+  }
+};
+
 export const removeBook = (payload) => ({
   type: REMOVE_BOOK,
   payload,
