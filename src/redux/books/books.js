@@ -1,5 +1,8 @@
 import { v4 as uuid } from 'uuid';
-import { addBook as addNewBook } from '../../api/APIHelper';
+import {
+  addBook as addNewBook,
+  deleteBook as removeExistingBook,
+} from '../../api/APIHelper';
 
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
@@ -22,10 +25,15 @@ export const addBook = (payload) => async (dispatch) => {
   }
 };
 
-export const removeBook = (payload) => ({
-  type: REMOVE_BOOK,
-  payload,
-});
+export const removeBook = (payload) => async (dispatch) => {
+  const text = await removeExistingBook(payload);
+  if (text === 'The book was deleted successfully!') {
+    dispatch({
+      type: REMOVE_BOOK,
+      payload,
+    });
+  }
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
