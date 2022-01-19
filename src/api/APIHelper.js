@@ -1,5 +1,4 @@
-const baseURL =
-  'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
+const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
 const appId = 'PdYdKQsxxAQjAIiflVg7';
 
 export const addBook = async ({ id, title, category }) => {
