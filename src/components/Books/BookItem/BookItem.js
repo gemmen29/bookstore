@@ -11,7 +11,7 @@ const BookItem = ({ book }) => {
   };
   return (
     <section className="px-10 py-3">
-      <div className="grid grid-cols-4 gap-10 px-10 items-center shadow rounded border-2 py-6">
+      <div className="grid grid-cols-4 gap-10 px-10 items-center shadow rounded border-2 py-10 bg-white">
         <div className="col-span-4 sm:col-span-2 lg:col-span-2">
           <h3 className="text-gray-400 font-bold">{book.category}</h3>
           <h2 className="font-bold text-xl">{book.title}</h2>

@@ -14,7 +14,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="min-h-screen bg-gray-100">
       <Header />
       <Routes>
         <Route path="/" element={<Navigate replace to="/books" />} />
@@ -22,7 +22,7 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="*" element={<Books />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
