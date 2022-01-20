@@ -64,7 +64,7 @@ const AddBook = ({ categories }) => {
           ))}
         </select>
         <button
-          className="bg-blue-500 col-span-2 md:col-span-1 hover:bg-blue-700 text-white py-2 px-5 rounded focus:outline-none focus:shadow-outline"
+          className="bg-sky-500 col-span-2 md:col-span-1 hover:bg-blue-700 text-white py-2 px-5 rounded focus:outline-none focus:shadow-outline"
           type="submit"
         >
           Add Book
