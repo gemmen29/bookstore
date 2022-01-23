@@ -20,7 +20,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://gemmen29.github.io/bookstore/)
+[Live Demo Link](https://bookstore500.netlify.app/)
 
 ## Getting Started
 
